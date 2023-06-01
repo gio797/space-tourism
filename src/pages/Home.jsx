@@ -4,8 +4,6 @@ import bgDesk from "../assets/home/background-home-desktop.jpg";
 import bgMob from "../assets/home/background-home-mobile.jpg";
 
 function Home() {
-  // document.body.style.backgroundImage = `url(${bgImage})`;
-
   useEffect(() => {
     changeBg();
   }, []);

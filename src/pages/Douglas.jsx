@@ -5,7 +5,6 @@ import React from "react";
 
 function Douglas() {
   const { crew } = useOutletContext();
-  console.log(crew);
 
   return (
     <div className="crew-info">

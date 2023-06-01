@@ -1,9 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { technologyData } from "../data";
+import bgDesk from "../assets/technology/background-technology-desktop.jpg";
+import bgMob from "../assets/technology/background-technology-mobile.jpg";
 
 function TechnologyLayout() {
   const [technology, setTechnology] = useState(technologyData);
+
+  useEffect(() => {
+    changeBg();
+  }, []);
+
+  function changeBg() {
+    if (window.innerWidth < 900) {
+      document.body.style.backgroundImage = `url('${bgMob}')`;
+    } else {
+      document.body.style.backgroundImage = `url('${bgDesk}')`;
+    }
+  }
+
+  window.addEventListener("resize", changeBg);
 
   const activeStyle = {
     textDecoration: "underline",

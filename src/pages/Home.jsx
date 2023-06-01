@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-// import bgImage from "../assets/home/background-home-desktop.jpg";
+import bgDesk from "../assets/home/background-home-desktop.jpg";
+import bgMob from "../assets/home/background-home-mobile.jpg";
 
 function Home() {
   // document.body.style.backgroundImage = `url(${bgImage})`;
+
+  useEffect(() => {
+    changeBg();
+  }, []);
+
+  function changeBg() {
+    if (window.innerWidth < 900) {
+      document.body.style.backgroundImage = `url('${bgMob}')`;
+    } else {
+      document.body.style.backgroundImage = `url('${bgDesk}')`;
+    }
+  }
+
+  window.addEventListener("resize", changeBg);
+
   return (
     <div className="home-container">
       <div className="home-container-text">

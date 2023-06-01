@@ -1,8 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { crewData } from "../data";
+import bgDesk from "../assets/crew/background-crew-desktop.jpg";
+import bgMob from "../assets/crew/background-crew-mobile.jpg";
 
 function CrewLayout() {
+  useEffect(() => {
+    changeBg();
+  }, []);
+
+  function changeBg() {
+    if (window.innerWidth < 900) {
+      document.body.style.backgroundImage = `url('${bgMob}')`;
+    } else {
+      document.body.style.backgroundImage = `url('${bgDesk}')`;
+    }
+  }
+
+  window.addEventListener("resize", changeBg);
+
   const activeStyle = {
     textDecoration: "underline",
     color: "#FFFFFF",
